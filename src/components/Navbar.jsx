@@ -4,13 +4,15 @@ export default function Navbar(props) {
     return(
         <>
         <div className={`navbar text-xl bg-gray-700 shadow-sm w-screen h-[10vh] ${props.position}`}>
-            <img src={logo} alt="logo-nav" className='object-contain w-20 h-20 -mr-5' />
-            <h1 className="ml-5 flex-1 font-bold">FireWatch Atlántico</h1>
+            <div className='flex flex-row flex-1'>
+                <img src={logo} alt="logo-nav" className='object-contain w-20 h-20 -mr-5' />
+                <a href="/"><h1 className="btn btn-ghost ml-5 font-bold relative top-5">FireWatch Atlántico</h1></a>
+            </div>
             <div class="flex-none">
               <ul class="menu menu-horizontal px-1">
                 <li><a href='/map'>Mapa</a></li>
                 <li><a href='/report'>Reportar</a></li>
-                <li><a>Contactanos</a></li>
+                <li><a href='https://wa.me/573164188637'>Contactanos</a></li>
               </ul>
             </div>
         </div>
