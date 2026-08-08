@@ -59,7 +59,7 @@ function Map(props) {
             })
 
             mapRef.current.on('click', id, (e)=>{
-              new mapboxgl.Popup({ offset: 25 }).setLngLat(e.lngLat).setText(`Report ID: ${id}`).addTo(mapRef.current)
+              new mapboxgl.Popup({ offset: 25 }).setLngLat(e.lngLat).setText(`${new Date(entry.created_at).toLocaleDateString()}`).addTo(mapRef.current)
             })
           })
         }
