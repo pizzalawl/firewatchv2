@@ -34,10 +34,10 @@ function Map(props) {
             const color = COLOR_BY_TYPE[entry.report_type]
             const id = entry.id.toString()
             const [lngFire, latFire] = entry.data.fire_location
-            const [lngLocation, latLocation] = entry.data.current_location
+            //const [lngLocation, latLocation] = entry.data.current_location
 
             let popup = new mapboxgl.Popup({ offset: 25 }).setText(`Report ID: ${id}`);
-            new mapboxgl.Marker({color: "#06402B"}).setLngLat([lngLocation, latLocation]).setPopup(popup).addTo(mapRef.current)
+            //new mapboxgl.Marker({color: "#06402B"}).setLngLat([lngLocation, latLocation]).setPopup(popup).addTo(mapRef.current)
 
             mapRef.current.addSource(id, {
               type: 'geojson',
