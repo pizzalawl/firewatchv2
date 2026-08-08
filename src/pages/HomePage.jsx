@@ -1,3 +1,4 @@
+import logo from '../assets/logo.png'
 import Map from '../components/Map.jsx'
 import Navbar from '../components/Navbar.jsx'
 
