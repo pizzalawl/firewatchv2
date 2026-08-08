@@ -1,11 +1,11 @@
-import logo from '../assets/logo.png'
 import Map from '../components/Map.jsx'
 import Navbar from '../components/Navbar.jsx'
+import Footer from '../components/Footer.jsx'
 
 export default function HomePage() {
   return (
     <>
-      <Navbar/>
+      <Navbar position='sticky top-0'/>
       <div className='flex flex-col'>
         <div id='map-preview' className='grid'>
           <Map style='w-screen h-[40rem] col-start-1 row-start-1' lng='-74.989' lat='10.9878' zoom={12} minZoom={12}/>
@@ -42,20 +42,7 @@ export default function HomePage() {
           <iframe className='rounded m-5' width="630" height="580" frameborder="0" src="https://globalnaturewatch.org/embed/widget/treeLossTsc/country/COL/4"></iframe>
           <iframe className='rounded m-5' width="630" height="540" frameborder="0" src="https://globalnaturewatch.org/embed/widget/treeLossFiresAnnual/country/COL/4"></iframe>
         </div>
-        <footer className='footer footer-horizontal w-screen p-10 mt-5 bg-gray-700'>
-          <aside className='flex flex-row'>
-            <div>
-              <img src={logo} alt="logo" className='w-35 h-35 object-contain' />
-            </div>
-            <p className='font-bold text-xl relative top-[50%] translate-y-[-50%]'>Proyecto FireWatch Atlántico</p>
-          </aside>
-          <nav>
-            <h6 className="footer-title">About</h6>
-            <a className="link link-hover">Sobre Nosotros</a>
-            <a className="link link-hover">Contactanos</a>
-            <a className="link link-hover">Nuestra Mision</a>
-          </nav>
-        </footer>
+        <Footer/>
       </div>
       
     </>
