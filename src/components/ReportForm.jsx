@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { supabase } from '../../utils/supabase'
 import SelectionMap from './SelectionMap.jsx'
 
-export default function ReportForm() {
+export default function ReportForm(props) {
     const [location, setLocation] = useState()
     const [fireLocation, setFireLocation] = useState()
     const report_type = useRef()
@@ -80,29 +80,37 @@ export default function ReportForm() {
         })
         if(error) {
             console.error(error)
+            props.updateToast(error)
             return
         }
+        props.updateToast(false)
         
     }
 
     return (
         <div className='flex flex-row gap-2'>
-            <form className='flex flex-col items-center gap-2 p-5' onSubmit={handleSubmit}>
-                <label htmlFor="report_type" className='relative top-1 text-white font-bold'>¿Que tan cerca estas al incendio?</label>
-                <select name="report_type" className='w-90 h-7 bg-white' id='report_type' ref={report_type}>
-                    <option value="">Selecciona una opción..</option>
-                    <option value="red">Estoy cerca a la llama 🔴</option>
-                    <option value="orange">Estoy dentro de la zona del humo 🟠</option>
-                    <option value="yellow">Veo de lejos el humo o el brillo de la llama 🟡</option>
-                </select>
-                <label htmlFor="photo" className=' text-white relative top-1 font-bold'>Toma una foto(opcional)</label>
-                <input id='photo' type="file" accept="image/*" capture="environment" className='w-60 bg-white rounded' ref={image}></input>
-                <label htmlFor="notes" className='font-bold text-white relative top-1'>Informacion Adicional:</label>
-                <textarea name="var_1" rows="2" cols="40" wrap="soft" className='bg-white rounded' ref={notes}></textarea>
-                <input type="submit" value="Submit" className='bg-white hover:bg-gray-200 w-30 h-8 rounded' />
+            <form className='flex flex-col justify-center gap-2 m-5' onSubmit={handleSubmit}>
+                <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+                    <legend className="fieldset-legend">Reportar un Incendio</legend>
+
+                    <label className="label">¿Que tan cerca estas al incendio?</label>
+                        <select name="report_type" className='select select-primary' ref={report_type}>
+                        <option value="">Selecciona una opción..</option>
+                        <option value="red">Estoy cerca a la llama 🔴</option>
+                        <option value="orange">Estoy dentro de la zona del humo 🟠</option>
+                        <option value="yellow">Veo de lejos el humo o el brillo de la llama 🟡</option>
+                    </select>
+
+                    <label className="label">Toma una foto</label>
+                    <input id='photo' type="file" accept="image/*" capture="environment" className='file-input' ref={image}></input>
+
+                    <label className="label">Informacion Adicional:</label>
+                    <textarea rows="6" cols="40" wrap="soft" className='textarea textarea-md' ref={notes}></textarea>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </fieldset>
             </form>
             <div className='flex flex-col items-center'>
-                <SelectionMap setLocation={setFireLocation} style='w-120 h-80 rounded m-5'/>
+                <SelectionMap setLocation={setFireLocation} style='w-120 h-100 rounded m-5'/>
                 <p className='text-white font-bold relative bottom-3'>Marca la ubicación estimada del incendio</p>
             </div>
         </div>
