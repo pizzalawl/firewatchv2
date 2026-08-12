@@ -88,8 +88,8 @@ export default function ReportForm(props) {
     }
 
     return (
-        <div className='flex flex-row gap-2'>
-            <form className='flex flex-col justify-center gap-2 m-5' onSubmit={handleSubmit}>
+        <div className='flex md:flex-row flex-col md:gap-2 gap-1'>
+            <form className='flex flex-col justify-center gap-2' onSubmit={handleSubmit}>
                 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
                     <legend className="fieldset-legend">Reportar un Incendio</legend>
 
@@ -110,7 +110,7 @@ export default function ReportForm(props) {
                 </fieldset>
             </form>
             <div className='flex flex-col items-center'>
-                <SelectionMap setLocation={setFireLocation} style='w-120 h-100 rounded m-5'/>
+                <SelectionMap setLocation={setFireLocation} style='md:w-120 w-[70%] h-100  rounded m-5'/>
                 <p className='text-white font-bold relative bottom-3'>Marca la ubicación estimada del incendio</p>
             </div>
         </div>
