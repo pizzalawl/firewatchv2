@@ -30,7 +30,7 @@ export default function ReportPage(){
     return(
         <>
             <Navbar/>
-            <div className='flex justify-center items-center h-screen bg-gray-800 m-10 rounded'>
+            <div className='flex justify-center items-center h-screen bg-gray-800 m-10 -p-40 rounded'>
                 <ReportForm updateToast={updateToast}/>
             </div>
             <div className="toast toast-bottom toast-end">
