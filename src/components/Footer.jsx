@@ -12,9 +12,8 @@ export default function Footer() {
               </aside>
               <nav>
                 <h6 className="footer-title">About</h6>
-                <a className="link link-hover">Sobre Nosotros</a>
                 <a className="link link-hover" href='https://wa.me/573164188637'>Contactanos</a>
-                <a className="link link-hover">Nuestra Mision</a>
+                <a className="link link-hover" href='/ourmission'>Nuestra Mision</a>
               </nav>
             </footer>
         </>
